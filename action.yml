@@ -1,0 +1,42 @@
+# action.yml
+name: "Cloudflare r2 Upload Action"
+description: "Upload directories/files to Cloudflare r2 via GitHub Actions. Supports package/library versioning."
+author: "billgo <hi@billgo.me>"
+branding:
+  icon: "message-circle"
+  color: "blue"
+inputs:
+  account_id:
+    description: ""
+    required: true
+  access_key_id:
+    description: ""
+    required: true
+  secret_access_key:
+    description: ""
+    required: true
+  bucket:
+    description: ""
+    required: true
+  region:
+    description: ""
+    default: "auto"
+    required: true
+  source_dir:
+    description: ""
+    required: true
+  destination_dir:
+    description: ""
+    required: false
+  output_file_url:
+    description: ""
+    default: "true"
+    required: false
+outputs:
+  result:
+    description: "`success` or `failure`"
+  file-urls:
+    description: ""
+runs:
+  using: "node16"
+  main: "lib/index.js"
